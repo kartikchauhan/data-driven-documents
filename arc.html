@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript">
+    
+    d3.json('sample-data.json', function(data) {
+        
+        var canvas = d3.select('body')        
+                        .append('svg')
+                            .attr('height', 800)
+                            .attr('width', 1000);
+
+    	var group = canvas.append('g')
+							.attr('transform', 'translate(200, 200)');
+
+    	var pi = Math.PI * 2;
+
+    	var arc = d3.arc()
+    				.innerRadius(100)
+    				.outerRadius(110)
+    				.startAngle(0)
+    				.endAngle(pi);
+
+		var arc2 = d3.arc()
+    				.innerRadius(50)
+    				.outerRadius(60)
+    				.startAngle(0)
+    				.endAngle(pi);
+
+		group.append('path')
+				.attr('d', arc2)
+				.attr('d', arc);
+
+    });
+
+</script>
+</body>
+</html>
